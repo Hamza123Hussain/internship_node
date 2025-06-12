@@ -1,4 +1,5 @@
 import express from 'express'
+import router from './routes/DummyRoute.js'
 //1. Import the Express module
 // This line brings the Express.js library into our file.
 // 2. Create an Express application instance
@@ -53,7 +54,7 @@ app.get('/about', (req, res) => {
 
 // Here we are mounting the userRoutes under the /users path.
 // This means every route defined inside userRoutes will start with /users.
-app.use('/users', userRoutes)
+app.use('/users', router)
 
 app.listen(port, () => {
   // We use template literals (backticks ``) for easy string formatting.
