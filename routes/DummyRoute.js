@@ -1,8 +1,8 @@
 // routes/users.js
 // Importing the Router feature from Express to define separate route handlers
-import express from 'express'
+import { Router } from 'express'
 // Creating a new router object. This acts like a mini Express app.
-const router = express.Router()
+const router = Router()
 // ===========================
 // FAKE IN-MEMORY "DATABASE"
 // ===========================
