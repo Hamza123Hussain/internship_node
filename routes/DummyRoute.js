@@ -20,9 +20,9 @@ router.get('/', (_, res) => {
   res.json(users)
 })
 // 📍 GET /users/:id - Fetch a single user by ID
-router.get('/:id', (req, res) => {
+router.get('/GetUserById', (req, res) => {
   // Convert the ID from string to a number
-  const userId = parseInt(req.params.id)
+  const userId = parseInt(req.query.id)
   // Find the user in the array by ID
   const user = users.find((u) => u.id === userId)
   // If user is found, send it as response
@@ -52,9 +52,9 @@ router.post('/', (req, res) => {
   res.status(201).json(newUser)
 })
 // 📍 PUT /users/:id - Update an existing user
-router.put('/:id', (req, res) => {
+router.put('/UpdateById', (req, res) => {
   // Convert ID from string to number
-  const userId = parseInt(req.params.id)
+  const userId = parseInt(req.query.id)
   // Get the updated name from the request body
   const { name } = req.body
   // Find the user with matching ID
@@ -69,9 +69,9 @@ router.put('/:id', (req, res) => {
   }
 })
 // 📍 DELETE /users/:id - Delete a user by ID
-router.delete('/:id', (req, res) => {
+router.delete('/DeleteById', (req, res) => {
   // Convert ID to number
-  const userId = parseInt(req.params.id)
+  const userId = parseInt(req.query.id)
   // Filter out the user with the given ID
   const newUsersArray = users.filter((u) => u.id !== userId)
   // Check if the user was actually removed
