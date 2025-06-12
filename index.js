@@ -10,15 +10,12 @@ const app = express()
 // This is the network port our server will listen on.
 // Common ports for web servers are 80 (HTTP), 443 (HTTPS), 3000, 8080.
 // We're using 3000 here, which is a common choice for development.
-
 // ===========================
 // MIDDLEWARE
 // ===========================
-
 // express.json() is a middleware that allows our app to read JSON data sent in HTTP requests.
 // Without this, req.body would be undefined.
 app.use(express.json())
-
 const port = 3000
 // 4. Define a Route Handler for the Root URL ("/")
 // This is where we tell our server how to respond to an incoming GET request
