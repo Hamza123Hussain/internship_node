@@ -19,7 +19,7 @@ router.get('/', (_, res) => {
   // Send back the full array of users
   res.json(users)
 })
-// 📍 GET /users/:id - Fetch a single user by ID
+// 📍 GET /users/GetUserById - Fetch a single user by ID
 router.get('/GetUserById', (req, res) => {
   // Convert the ID from string to a number
   const userId = parseInt(req.query.id)
@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
   // Send a response with 201 (Created) and the new user
   res.status(201).json(newUser)
 })
-// 📍 PUT /users/:id - Update an existing user
+// 📍 PUT /users/UpdateById - Update an existing user
 router.put('/UpdateById', (req, res) => {
   // Convert ID from string to number
   const userId = parseInt(req.query.id)
@@ -68,7 +68,7 @@ router.put('/UpdateById', (req, res) => {
     res.status(404).json({ message: 'User not found' })
   }
 })
-// 📍 DELETE /users/:id - Delete a user by ID
+// 📍 DELETE /users/DeleteById- Delete a user by ID
 router.delete('/DeleteById', (req, res) => {
   // Convert ID to number
   const userId = parseInt(req.query.id)
