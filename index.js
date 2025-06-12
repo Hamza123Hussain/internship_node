@@ -50,6 +50,11 @@ app.get('/about', (req, res) => {
 // The first argument is the port number (defined as 'port' above).
 // The second argument is an optional callback function that executes once the server
 // has successfully started listening. This is useful for logging a message to the console.
+
+// Here we are mounting the userRoutes under the /users path.
+// This means every route defined inside userRoutes will start with /users.
+app.use('/users', userRoutes)
+
 app.listen(port, () => {
   // We use template literals (backticks ``) for easy string formatting.
   // This message will appear in your terminal when you run 'node your_file_name.js'.
