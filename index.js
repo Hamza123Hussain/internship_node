@@ -16,6 +16,8 @@ const app = express()
 // express.json() is a middleware that allows our app to read JSON data sent in HTTP requests.
 // Without this, req.body would be undefined.
 app.use(express.json())
+// This is important when frontend and backend run on different ports/domains
+app.use(cors())
 const port = 3000
 // 4. Define a Route Handler for the Root URL ("/")
 // This is where we tell our server how to respond to an incoming GET request
@@ -58,5 +60,5 @@ app.listen(port, () => {
   // This message will appear in your terminal when you run 'node your_file_name.js'.
   console.log(`Server is running at http://localhost:${port}`)
   console.log('You can now open your browser and visit the URL above.')
-  console.log('HELLO INTERN........')
+  console.log('HELLO INTERN.......hlloo.')
 })
