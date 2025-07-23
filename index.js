@@ -1,5 +1,8 @@
 import express from 'express'
 import router from './routes/DummyRoute.js'
+import cors from 'cors'
+import { DB_CONNECTED } from './Db/Connection.js'
+import { UserRouter } from './routes/UserRoute.js'
 //1. Import the Express module
 // This line brings the Express.js library into our file.
 // 2. Create an Express application instance
@@ -54,11 +57,14 @@ app.get('/about', (req, res) => {
 // Here we are mounting the userRoutes under the /users path.
 // This means every route defined inside userRoutes will start with /users.
 app.use('/users', router)
-
-app.listen(port, () => {
-  // We use template literals (backticks ``) for easy string formatting.
-  // This message will appear in your terminal when you run 'node your_file_name.js'.
-  console.log(`Server is running at http://localhost:${port}`)
-  console.log('You can now open your browser and visit the URL above.')
-  console.log('HELLO INTERN.......hlloo.')
+DB_CONNECTED().then(() => {
+  app.listen(port, () => {
+    // We use template literals (backticks ``) for easy string formatting.
+    // This message will appear in your terminal when you run 'node your_file_name.js'.
+    console.log(`Server is running at http://localhost:${port}`)
+    console.log('You can now open your browser and visit the URL above.')
+    console.log('HELLO INTERN.......hlloo.')
+  })
 })
+
+app.use('/api/User', UserRouter)
